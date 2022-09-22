@@ -118,6 +118,7 @@ Figure 3.1: 线性可分的二分类问题
 <p><span class="math display">\[
 f(\boldsymbol{x})=\boldsymbol{w}^T\boldsymbol{x}+w_0
 \]</span></p>
+<p>其中，<span class="math inline">\(y=f(\boldsymbol{x})\in\mathbb{R}, \boldsymbol{w}, \boldsymbol{x}\in\mathbb{R}^n, w_0\in\mathbb{R}\)</span>。</p>
 <p>决策边界为：<span class="math inline">\(f(\boldsymbol{x})=0\)</span>，即：</p>
 <p><span class="math display">\[
 \begin{cases}
@@ -133,11 +134,22 @@ y = \text{sgn}(f(\boldsymbol{x})) =
 -1&amp;\rightarrow\boldsymbol{x}\in\omega_2
 \end{cases}
 \]</span></p>
-<p>那问题来了，在这个例子中线性可分会存在一定的操作空间（改变 <span class="math inline">\(\boldsymbol{w}^T\)</span> 和 <span class="math inline">\(w_0\)</span>，即调整方向和平移，这个定义我们之后再说），那么最好的判别器是什么呢？Fisher（文献）给出了一种方法，最大化类内散度和类间散度的比值。首先我们先来定义类内散度和类间散度：</p>
+<p>那问题来了，在这个例子中线性可分会存在一定的操作空间（改变 <span class="math inline">\(\boldsymbol{w}^T\)</span> 和 <span class="math inline">\(w_0\)</span>，即调整方向和平移，这个定义我们之后再说），那么最好的判别器是什么呢？Fisher（文献）给出了一种方法：最大化类内散度和类间散度的比值。我们先来定义类内散度和类间散度：</p>
+<p>首先对 <span class="math inline">\(\boldsymbol{x}\)</span> 来说，类内散度：</p>
+<p><span class="math display">\[
+S_i=\sum_{\boldsymbol{x}_j\in \omega_i}\Vert\boldsymbol{x}_j-\boldsymbol{m}_i\Vert^2_2,\quad i=1,2
+\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol{m}_i\)</span> 是类 <span class="math inline">\(\omega_i\)</span> 的均值向量，<span class="math inline">\(S_i\)</span> 表示类 <span class="math inline">\(\omega_i\)</span> 的类内散度。</p>
+<p>总类内散度：</p>
+<p><span class="math display">\[
+S_W=\sum S_i,\quad i=1,2
+\]</span></p>
 <p>类间散度：</p>
 <p><span class="math display">\[
-S_i=\sum_{\boldsymbol{x}_j\in \omega_i}\Vert\boldsymbol{x}_j-\boldsymbol{m}_i\Vert^2_2
+S_b = \Vert\boldsymbol{m}_1-\boldsymbol{m}_2\Vert^2_2
 \]</span></p>
+<p>而对于 <span class="math inline">\(y=f(\boldsymbol{x})\)</span> 来说，类内散度：</p>
+<p>$$</p>
 
 </div>
 </div>
