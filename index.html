@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>机器学习（2022 秋，课程编号）</title>
+  <title>机器学习（2022 秋，80250993）</title>
   <meta name="description" content="test" />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="机器学习（2022 秋，课程编号）" />
+  <meta property="og:title" content="机器学习（2022 秋，80250993）" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="test" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="机器学习（2022 秋，课程编号）" />
+  <meta name="twitter:title" content="机器学习（2022 秋，80250993）" />
   
   <meta name="twitter:description" content="test" />
   
@@ -69,25 +69,18 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">运筹学</a></li>
+<li><a href="./">Machine Learning (2022 fall)</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#课程大纲"><i class="fa fa-check"></i><b>1.1</b> 课程大纲</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#课程参考书"><i class="fa fa-check"></i><b>1.2</b> 课程参考书</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="错误.html"><a href="错误.html"><i class="fa fa-check"></i><b>2</b> 错误</a></li>
 <li class="chapter" data-level="3" data-path="线性学习机.html"><a href="线性学习机.html"><i class="fa fa-check"></i><b>3</b> 线性学习机</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="线性学习机.html"><a href="线性学习机.html#logistic-分类机"><i class="fa fa-check"></i><b>3.1</b> Logistic 分类机</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="线性学习机.html"><a href="线性学习机.html#最大化似然函数"><i class="fa fa-check"></i><b>3.1.1</b> 最大化似然函数</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="前言-1.html"><a href="前言-1.html"><i class="fa fa-check"></i><b>4</b> 前言</a></li>
-<li class="chapter" data-level="5" data-path="线性规划.html"><a href="线性规划.html"><i class="fa fa-check"></i><b>5</b> 线性规划</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="线性规划.html"><a href="线性规划.html#线性规划问题的标准形式"><i class="fa fa-check"></i><b>5.1</b> 线性规划问题的标准形式</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="线性规划.html"><a href="线性规划.html#线性规划问题解的概念"><i class="fa fa-check"></i><b>5.1.1</b> 线性规划问题解的概念</a></li>
-</ul></li>
+<li class="chapter" data-level="3.1" data-path="线性学习机.html"><a href="线性学习机.html#线性判别分析-fisher-的线性判别法"><i class="fa fa-check"></i><b>3.1</b> 线性判别分析 —— Fisher 的线性判别法</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -102,7 +95,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">机器学习（2022 秋，课程编号）</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">机器学习（2022 秋，80250993）</a>
           </h1>
         </div>
 
@@ -111,14 +104,57 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">机器学习（2022 秋，课程编号）</h1>
+<h1 class="title">机器学习（2022 秋，80250993）</h1>
 <p class="author"><em>Jim Zhang</em></p>
 <p class="date"><em>2022-09-22</em></p>
 </div>
 <div id="前言" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> 前言<a href="index.html#前言" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>（运筹学的重要性）</p>
+<p>本系列讲义为 Jim 根据自己的理解，对于清华大学自动化系教授、ISCB Fellow、生命学院和医学院兼职教授、R 语言<code>DEGseq</code>库作者<a href="https://www.au.tsinghua.edu.cn/info/1110/1569.htm">张学工老师</a>于 2022 年秋季开设的《Machine Learning》课程讲义进行的重新诠释。</p>
+<div id="课程大纲" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> 课程大纲<a href="index.html#课程大纲" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="11%" />
+<col width="79%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Date</th>
+<th>Course content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>09/15</td>
+<td>Introdution, Pattern Classifiers and Their Assessment</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>09/22</td>
+<td>Linear Learning Machines (Linear Classifiers, Linear Regression, MSE/ADALINE, Logistic Regression, Fisher’s Linear Discriminant, Perceptron)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="课程参考书" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> 课程参考书<a href="index.html#课程参考书" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>张学工、汪小我，《模式识别（第四版）：模式识别与机器学习》，清华大学出版社，2021.8.</li>
+<li>R.O. Duda, P.E. Hart, D.G. Stork, <em>Pattern Classification</em> (2<sup>nd</sup> edition), John Wiley &amp; Sons, Inc, 2001.</li>
+<li>S. Raschka &amp; V. Mirjalili, <em>Python Machine Learning</em> (2<sup>nd</sup> edition), Birmingham, Packt Publishing, 2017.</li>
+<li>Y. S. Abu-Mostafa, M. Magdon-Ismail, H-T. Lin, <em>Learning from Data</em>, AMLbook.com, 2012.</li>
+<li>Christopher M. Bishop, <em>Pattern Recognition and Machine Learning</em>, New York, Springer, 2006.</li>
+<li>T. Hastie, R. Tibshirani, J. Friedman, <em>The Elements of Statistical Learning</em> (2<sup>nd</sup> edition), New York, Springer, 2016.</li>
+<li>S. Shalev-Shwartz &amp; S. Ben-David, <em>Understanding Machine Learning: From Theory to
+Algorithms</em>, Cambridge University Press, 2014.</li>
+<li>I. Goodfellow, Y. Bengio, A. Courville, <em>Deep Learning</em>, MIT Press, 2016.</li>
+</ol>
 
+</div>
 </div>
             </section>
 
@@ -168,7 +204,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Python-GIS.pdf", "Python-GIS.epub"],
+"download": ["machine-learning-2022fall.pdf", "machine-learning-2022fall.epub"],
 "search": {
 "engine": "fuse",
 "options": null
@@ -186,7 +222,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
