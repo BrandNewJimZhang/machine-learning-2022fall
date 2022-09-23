@@ -23,7 +23,7 @@
 <meta name="author" content="Jim Zhang" />
 
 
-<meta name="date" content="2022-09-22" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,22 +134,49 @@ y = \text{sgn}(f(\boldsymbol{x})) =
 -1&amp;\rightarrow\boldsymbol{x}\in\omega_2
 \end{cases}
 \]</span></p>
-<p>那问题来了，在这个例子中线性可分会存在一定的操作空间（改变 <span class="math inline">\(\boldsymbol{w}^T\)</span> 和 <span class="math inline">\(w_0\)</span>，即调整方向和平移，这个定义我们之后再说），那么最好的判别器是什么呢？Fisher（文献）给出了一种方法：最大化类内散度和类间散度的比值。我们先来定义类内散度和类间散度：</p>
-<p>首先对 <span class="math inline">\(\boldsymbol{x}\)</span> 来说，类内散度：</p>
+<p>那问题来了，在这个例子中线性可分会存在一定的操作空间（改变 <span class="math inline">\(\boldsymbol{w}^T\)</span> 和 <span class="math inline">\(w_0\)</span>，即调整方向和平移，这个定义我们之后再说），那么最好的判别器是什么呢？Fisher（文献）给出了一种方法：最大化类内散度和类间散度的比值。</p>
+<p>首先定义了这样一个映射：</p>
 <p><span class="math display">\[
-S_i=\sum_{\boldsymbol{x}_j\in \omega_i}\Vert\boldsymbol{x}_j-\boldsymbol{m}_i\Vert^2_2,\quad i=1,2
+\mathcal{X}\rightarrow\mathcal{Y}:\quad y_i=\boldsymbol{w}^T\boldsymbol{x}_i
 \]</span></p>
-<p>其中 <span class="math inline">\(\boldsymbol{m}_i\)</span> 是类 <span class="math inline">\(\omega_i\)</span> 的均值向量，<span class="math inline">\(S_i\)</span> 表示类 <span class="math inline">\(\omega_i\)</span> 的类内散度。</p>
+<p>对 <span class="math inline">\(\boldsymbol{x}\)</span> 来说，定义类内散度：</p>
+<p><span class="math display">\[
+\boldsymbol{S}_i=\sum_{\boldsymbol{x}_j\in \mathcal{X}_i}\Vert\boldsymbol{x}_j-\boldsymbol{m}_i\Vert^2_2,\quad i=1,2
+\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol{m}_i\)</span> 是类 <span class="math inline">\(\mathcal{X}_i\)</span> 的均值向量，<span class="math inline">\(S_i\)</span> 表示类 <span class="math inline">\(\mathcal{X}_i\)</span> 的类内散度。</p>
 <p>总类内散度：</p>
 <p><span class="math display">\[
-S_W=\sum S_i,\quad i=1,2
+\boldsymbol{S}_w=\sum S_i,\quad i=1,2
 \]</span></p>
 <p>类间散度：</p>
 <p><span class="math display">\[
-S_b = \Vert\boldsymbol{m}_1-\boldsymbol{m}_2\Vert^2_2
+\boldsymbol{S}_b = \Vert\boldsymbol{m}_1-\boldsymbol{m}_2\Vert^2_2
 \]</span></p>
-<p>而对于 <span class="math inline">\(y=f(\boldsymbol{x})\)</span> 来说，类内散度：</p>
-<p>$$</p>
+<p>而对于 <span class="math inline">\(y=f(\boldsymbol{x})\)</span> 来说，均值是：</p>
+<p><span class="math display">\[
+\tilde{m}_i=\frac{1}{N_i}\sum_{y_j\in\mathcal{Y}_i} y_j,\quad i=1,2
+\]</span></p>
+<p>其中 <span class="math inline">\(N_i\)</span> 是类 <span class="math inline">\(\mathcal{Y}_i\)</span> 的样本数，<span class="math inline">\(\tilde{m}_i\)</span> 是类 <span class="math inline">\(\mathcal{Y}_i\)</span> 的均值。</p>
+<p>类内散度：</p>
+<p><span class="math display">\[
+S_i=\sum_{y_j\in\mathcal{Y}_i}(y_j-\tilde{m}_i)^2,\quad i=1,2
+\]</span></p>
+<p>总类内散度：</p>
+<p><span class="math display">\[
+\tilde{S}_w=\sum\tilde{S}_i,\quad i=1,2
+\]</span></p>
+<p>类间散度：</p>
+<p><span class="math display">\[
+\tilde{S}_b=(\tilde{m}_1-\tilde{m}_2)^2
+\]</span></p>
+<p>那么，Fisher 的准则就是：</p>
+<p><span class="math display">\[
+\max_{\boldsymbol{w}} J_{F}(\boldsymbol{w})=\frac{\tilde{S}_b}{\tilde{S}_w}=\frac{\boldsymbol{w}^T\boldsymbol{S}_b\boldsymbol{w}}{\boldsymbol{w}^T\boldsymbol{S}_w\boldsymbol{w}}
+\]</span></p>
+<p>然后我们要解出 <span class="math inline">\(\boldsymbol{w}^\ast=\underset{\boldsymbol{w}}{\operatorname{arg\,max}}\,J_F(\boldsymbol{w})\)</span>，怎么办呢？一种办法是假设分母是常数，使用拉格朗日乘子法，即：</p>
+<p><span class="math display">\[
+\max \boldsymbol{w}^T\boldsymbol{S}_b\boldsymbol{w} \quad \text{s.t.} \quad \boldsymbol{w}^T\boldsymbol{S}_w\boldsymbol{w}=c
+\]</span></p>
 
 </div>
 </div>
