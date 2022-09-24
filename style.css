@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Noto Serif SC', serif;
 }
 
-p, li {
+p, li, div.csl-entry {
   font-family: 'LXGW Wenkai Lite', serif;
 }
 

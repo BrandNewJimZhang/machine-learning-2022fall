@@ -23,7 +23,7 @@
 <meta name="author" content="Jim Zhang" />
 
 
-<meta name="date" content="2022-09-23" />
+<meta name="date" content="2022-09-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="错误.html"/>
-
+<link rel="next" href="参考资料.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -55,6 +55,28 @@
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -80,8 +102,17 @@
 <li class="chapter" data-level="2" data-path="错误.html"><a href="错误.html"><i class="fa fa-check"></i><b>2</b> 错误</a></li>
 <li class="chapter" data-level="3" data-path="线性学习机.html"><a href="线性学习机.html"><i class="fa fa-check"></i><b>3</b> 线性学习机</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="线性学习机.html"><a href="线性学习机.html#线性判别分析-fisher-的线性判别法"><i class="fa fa-check"></i><b>3.1</b> 线性判别分析 —— Fisher 的线性判别法</a></li>
+<li class="chapter" data-level="3.1" data-path="线性学习机.html"><a href="线性学习机.html#本章基础知识"><i class="fa fa-check"></i><b>3.1</b> 本章基础知识</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="线性学习机.html"><a href="线性学习机.html#二次型的导数"><i class="fa fa-check"></i><b>3.1.1</b> 二次型的导数</a></li>
 </ul></li>
+<li class="chapter" data-level="3.2" data-path="线性学习机.html"><a href="线性学习机.html#线性判别分析-fisher-的线性判别法"><i class="fa fa-check"></i><b>3.2</b> 线性判别分析 —— Fisher 的线性判别法</a></li>
+<li class="chapter" data-level="3.3" data-path="线性学习机.html"><a href="线性学习机.html#感知机"><i class="fa fa-check"></i><b>3.3</b> 感知机</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="线性学习机.html"><a href="线性学习机.html#感知机学习策略"><i class="fa fa-check"></i><b>3.3.1</b> 感知机学习策略</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="参考资料.html"><a href="参考资料.html"><i class="fa fa-check"></i>参考资料</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 <li><a href="https://jimzhang.me" target="blank">Jim Zhang 的博客</a></li>
@@ -105,8 +136,20 @@
             <section class="normal" id="section-">
 <div id="线性学习机" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Chapter 3</span> 线性学习机<a href="线性学习机.html#线性学习机" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="线性判别分析-fisher-的线性判别法" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> 线性判别分析 —— Fisher 的线性判别法<a href="线性学习机.html#线性判别分析-fisher-的线性判别法" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="本章基础知识" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> 本章基础知识<a href="线性学习机.html#本章基础知识" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="二次型的导数" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> 二次型的导数<a href="线性学习机.html#二次型的导数" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>假如现在有一个二次型 <span class="math inline">\(f(\boldsymbol{x})=\boldsymbol{x}^T P \boldsymbol{x}\)</span>，其中 <span class="math inline">\(P=(a_{ij})_{n\times n}\)</span> 是一个对称阵，那么其对 <span class="math inline">\(\boldsymbol{x}\)</span> 求导有：</p>
+<p><span class="math display">\[
+\frac{\partial f(\boldsymbol{x})}{\partial \boldsymbol{x}}
+=\left(\frac{\partial(\sum_{i=1}^n\sum_{j=1}^n a_{ij} x_i x_j)}{\partial x_i}\right)_n
+=2P\boldsymbol{x}
+\]</span></p>
+</div>
+</div>
+<div id="线性判别分析-fisher-的线性判别法" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> 线性判别分析 —— Fisher 的线性判别法<a href="线性学习机.html#线性判别分析-fisher-的线性判别法" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>先讨论一些线性可分的二分类问题：</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="machine-learning-2022fall_files/figure-html/unnamed-chunk-1-1.png" alt="线性可分的二分类问题" width="90%" />
@@ -134,14 +177,14 @@ y = \text{sgn}(f(\boldsymbol{x})) =
 -1&amp;\rightarrow\boldsymbol{x}\in\omega_2
 \end{cases}
 \]</span></p>
-<p>那问题来了，在这个例子中线性可分会存在一定的操作空间（改变 <span class="math inline">\(\boldsymbol{w}^T\)</span> 和 <span class="math inline">\(w_0\)</span>，即调整方向和平移，这个定义我们之后再说），那么最好的判别器是什么呢？Fisher（文献）给出了一种方法：最大化类内散度和类间散度的比值。</p>
+<p>那问题来了，在这个例子中线性可分会存在一定的操作空间（改变 <span class="math inline">\(\boldsymbol{w}^T\)</span> 和 <span class="math inline">\(w_0\)</span>，即调整方向和平移，这个定义我们之后再说），那么最好的判别器是什么呢？<span class="citation">Fisher (<a href="#ref-Fisher-1936" role="doc-biblioref">1936</a>)</span> 给出了一种方法：最大化类内散度和类间散度的比值。</p>
 <p>首先定义了这样一个映射：</p>
 <p><span class="math display">\[
 \mathcal{X}\rightarrow\mathcal{Y}:\quad y_i=\boldsymbol{w}^T\boldsymbol{x}_i
 \]</span></p>
 <p>对 <span class="math inline">\(\boldsymbol{x}\)</span> 来说，定义类内散度：</p>
 <p><span class="math display">\[
-\boldsymbol{S}_i=\sum_{\boldsymbol{x}_j\in \mathcal{X}_i}\Vert\boldsymbol{x}_j-\boldsymbol{m}_i\Vert^2_2,\quad i=1,2
+\boldsymbol{S}_i=\sum_{\boldsymbol{x}_j\in \mathcal{X}_i}(\boldsymbol{x}_j-\boldsymbol{m}_i)(\boldsymbol{x}_j-\boldsymbol{m}_i)^T,\quad i=1,2
 \]</span></p>
 <p>其中 <span class="math inline">\(\boldsymbol{m}_i\)</span> 是类 <span class="math inline">\(\mathcal{X}_i\)</span> 的均值向量，<span class="math inline">\(S_i\)</span> 表示类 <span class="math inline">\(\mathcal{X}_i\)</span> 的类内散度。</p>
 <p>总类内散度：</p>
@@ -150,7 +193,7 @@ y = \text{sgn}(f(\boldsymbol{x})) =
 \]</span></p>
 <p>类间散度：</p>
 <p><span class="math display">\[
-\boldsymbol{S}_b = \Vert\boldsymbol{m}_1-\boldsymbol{m}_2\Vert^2_2
+\boldsymbol{S}_b = (\boldsymbol{m}_1-\boldsymbol{m}_2)(\boldsymbol{m}_1-\boldsymbol{m}_2)^T
 \]</span></p>
 <p>而对于 <span class="math inline">\(y=f(\boldsymbol{x})\)</span> 来说，均值是：</p>
 <p><span class="math display">\[
@@ -159,7 +202,7 @@ y = \text{sgn}(f(\boldsymbol{x})) =
 <p>其中 <span class="math inline">\(N_i\)</span> 是类 <span class="math inline">\(\mathcal{Y}_i\)</span> 的样本数，<span class="math inline">\(\tilde{m}_i\)</span> 是类 <span class="math inline">\(\mathcal{Y}_i\)</span> 的均值。</p>
 <p>类内散度：</p>
 <p><span class="math display">\[
-S_i=\sum_{y_j\in\mathcal{Y}_i}(y_j-\tilde{m}_i)^2,\quad i=1,2
+\tilde{S}_i=\sum_{y_j\in\mathcal{Y}_i}(y_j-\tilde{m}_i)^2,\quad i=1,2
 \]</span></p>
 <p>总类内散度：</p>
 <p><span class="math display">\[
@@ -173,11 +216,66 @@ S_i=\sum_{y_j\in\mathcal{Y}_i}(y_j-\tilde{m}_i)^2,\quad i=1,2
 <p><span class="math display">\[
 \max_{\boldsymbol{w}} J_{F}(\boldsymbol{w})=\frac{\tilde{S}_b}{\tilde{S}_w}=\frac{\boldsymbol{w}^T\boldsymbol{S}_b\boldsymbol{w}}{\boldsymbol{w}^T\boldsymbol{S}_w\boldsymbol{w}}
 \]</span></p>
-<p>然后我们要解出 <span class="math inline">\(\boldsymbol{w}^\ast=\underset{\boldsymbol{w}}{\operatorname{arg\,max}}\,J_F(\boldsymbol{w})\)</span>，怎么办呢？一种办法是假设分母是常数，使用拉格朗日乘子法，即：</p>
+<p>然后我们要解出 <span class="math inline">\(\boldsymbol{w}^\ast=\underset{\boldsymbol{w}}{\operatorname{arg\,max}}\,J_F(\boldsymbol{w})\)</span>，怎么办呢？一种办法是假设分母是常数，问题就变成了：</p>
 <p><span class="math display">\[
-\max \boldsymbol{w}^T\boldsymbol{S}_b\boldsymbol{w} \quad \text{s.t.} \quad \boldsymbol{w}^T\boldsymbol{S}_w\boldsymbol{w}=c
+\max \boldsymbol{w}^T\boldsymbol{S}_b\boldsymbol{w} \quad \text{s.t.}\,\boldsymbol{w}^T\boldsymbol{S}_w\boldsymbol{w}=c
 \]</span></p>
+<p>这时候我们可以使用 Lagrange 乘子法，得到：</p>
+<p><span class="math display">\[
+\mathcal{L}(\boldsymbol{w},\lambda)=\boldsymbol{w}^T\boldsymbol{S}_b\boldsymbol{w}-\lambda(\boldsymbol{w}^T\boldsymbol{S}_w\boldsymbol{w}-c)
+\]</span></p>
+<p>对 <span class="math inline">\(\boldsymbol{w}\)</span> 求导，得到：</p>
+<p><span class="math display">\[
+\frac{\partial\mathcal{L}}{\partial\boldsymbol{w}}=2\boldsymbol{S}_b\boldsymbol{w}-2\lambda\boldsymbol{S}_w\boldsymbol{w}
+\]</span></p>
+<p>令其为 <span class="math inline">\(0\)</span>，得到：</p>
+<p><span class="math display">\[
+\boldsymbol{S}_b\boldsymbol{w}^\ast=\lambda\boldsymbol{S}_w\boldsymbol{w}^\ast
+\]</span></p>
+<p>即：</p>
+<p><span class="math display">\[
+\boldsymbol{S}_w^{-1}\boldsymbol{S}_b\boldsymbol{w}^\ast=\lambda\boldsymbol{w}^\ast
+\]</span></p>
+<p>显然，<span class="math inline">\(\boldsymbol{w}^\ast\)</span> 是 <span class="math inline">\(\boldsymbol{S}_b^{-1}\boldsymbol{S}_w\)</span> 的特征向量，而 <span class="math inline">\(\lambda\)</span> 是特征值。</p>
+<p>然后我们再将原来的 <span class="math inline">\(\boldsymbol{S}_{b}=(\boldsymbol{m}_1-\boldsymbol{m}_2)(\boldsymbol{m}_1-\boldsymbol{m}_2)^T\)</span> 代入，得到：</p>
+<p><span class="math display">\[
+\lambda\boldsymbol{w}^\ast=\boldsymbol{S}_w^{-1}(\boldsymbol{m}_1-\boldsymbol{m}_2)(\boldsymbol{m}_1-\boldsymbol{m}_2)^T\boldsymbol{w}^\ast
+\]</span></p>
+<p>因为 <span class="math inline">\((\boldsymbol{m}_1-\boldsymbol{m}_2)^T\boldsymbol{w}^\ast\)</span> 是标量，而我们的问题关注的是 <span class="math inline">\(\boldsymbol{w}^\ast\)</span> 所代表的方向，那么我们可以说</p>
+<p><span class="math display">\[
+\boldsymbol{w}^\ast\propto\boldsymbol{S}_w^{-1}(\boldsymbol{m}_1-\boldsymbol{m}_2)
+\]</span></p>
+<p>好了，<span class="math inline">\(\boldsymbol{w}^\ast\)</span> 确定好了，那 <span class="math inline">\(w_0\)</span> 怎么办呢？</p>
+<p>一般来说，有很多种办法，比如：</p>
+<p><span class="math display">\[
+\begin{align}
+w_0&amp;=-\frac{1}{2}(\tilde{m}_1+\tilde{m}_2),\\
+w_0&amp;=-\frac{1}{2}(\tilde{m}_1+\tilde{m}_2)+\frac{1}{N_1+N_2-2}\ln\frac{P(\omega_1)}{P(\omega_2)},
+\end{align}
+\]</span></p>
+<p>等等。</p>
+</div>
+<div id="感知机" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> 感知机<a href="线性学习机.html#感知机" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>所谓感知机，就是一个线性分类器，其输入是实例的特征向量，输出是实例的类别，取 <span class="math inline">\(+1\)</span> 和 <span class="math inline">\(-1\)</span> 两个值，即：</p>
+<p><span class="math display">\[
+f(\boldsymbol{x})=\operatorname{sgn}(\boldsymbol{w}^T\boldsymbol{x}+w_0)
+\]</span></p>
+<div id="感知机学习策略" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> 感知机学习策略<a href="线性学习机.html#感知机学习策略" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>感知机学习的策略是极小化损失函数 <span class="math inline">\(\nabla J(\boldsymbol{w})\)</span>，最早的时候还在使用基本梯度下降法：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\boldsymbol{w}^{\{n+1\}}=\boldsymbol{w}^{\{n\}}-\eta\nabla J(\boldsymbol{w}^{\{n\}})\)</span>；</li>
+<li>重复 1 直到收敛，<span class="math inline">\(\nabla J(\boldsymbol{w})&lt;\text{threshold}\)</span>。</li>
+</ol>
 
+</div>
+</div>
+</div>
+<h3>参考资料<a href="参考资料.html#参考资料" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Fisher-1936" class="csl-entry">
+Fisher, R. A. 1936. <span>“The Use of Multiple Measurements in Taxonomic Problems.”</span> <em>Annals of Eugenics</em> 7 (2): 179–88. <a href="https://doi.org/10.1111/j.1469-1809.1936.tb02137.x">https://doi.org/10.1111/j.1469-1809.1936.tb02137.x</a>.
 </div>
 </div>
             </section>
@@ -185,8 +283,8 @@ S_i=\sum_{y_j\in\mathcal{Y}_i}(y_j-\tilde{m}_i)^2,\quad i=1,2
           </div>
         </div>
       </div>
-<a href="错误.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="错误.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="参考资料.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
